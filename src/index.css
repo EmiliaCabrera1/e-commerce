@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+* {
+  text-decoration: none;
+  scroll-behavior: smooth;
+  font-family: "Manrope";
+}
+@theme {
+  --color-beige: #bbb4a9;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("/font/Manrope-ExtraLight.ttf");
+}
