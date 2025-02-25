@@ -1,6 +1,6 @@
 import React from "react";
 
-const DetallePrenda = () => {
+const DetalleItem = () => {
   return (
     <div className="bg-beige/30 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] w-70% mx-20 mb-20 h-auto max-h-full">
       <div className="flex justify-end">
@@ -66,4 +66,4 @@ const DetallePrenda = () => {
   );
 };
 
-export default DetallePrenda;
+export default DetalleItem;
