@@ -1,5 +1,5 @@
 function Inicio() {
-  return <h1>INICIO</h1>;
+  return <img src="./assets/inicio.jpg" alt="img inicio" />;
 }
 
 export default Inicio;

@@ -1,26 +1,26 @@
 import { useState, useEffect } from "react";
 import ContenedorItems from "../Componentes/ContenedorItems";
 import Titulo from "../Componentes/Titulo";
-import { obtenerVestidos } from "../Servicios/productos";
+import { obtenerEspejos } from "../Servicios/productos";
 
-function Vestidos() {
+function Espejos() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    const traerVestidos = async () => {
-      const vestidos = await obtenerVestidos();
-      setItems(vestidos);
+    const traerEspejos = async () => {
+      const Espejos = await obtenerEspejos();
+      setItems(Espejos);
     };
 
-    traerVestidos();
+    traerEspejos();
   }, []);
 
   return (
     <>
-      <Titulo titulo="Vestidos" />
+      <Titulo titulo="Espejos" />
       <ContenedorItems items={items} />
     </>
   );
 }
 
-export default Vestidos;
+export default Espejos;

@@ -1,20 +1,24 @@
 import React from "react";
+import { formatoMoneda } from "../Utilidad/Formato";
 
-const Item = () => {
+const Item = ({ Id, ImagenUrl, Nombre, Precio }) => {
+  console.log(ImagenUrl);
   return (
-    <div className="bg-beige/30 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] w-full h-full aspect-[2/3]">
+    <div className="relative bg-beige/30 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] w-full aspect-[2/3]">
       <img
-        src="./assets/ejemploVestido.svg"
+        src={ImagenUrl}
         alt="Foto del vestido"
-        className="h-[70%] w-auto object-cover"
+        className="h-[80%] w-full object-cover"
       />
       <img
         src="./assets/mg.svg"
         alt="Corazon"
-        className="-mt-12 z-20 mr-4 ml-auto h-8 w-auto"
+        className="absolute z-10 right-4 top-[65%] w-[15%]"
       />
-      <h4 className="mx-2 mt-8 mb-1 text-nowrap">Nombre del vestido</h4>
-      <h6 className="mx-2 mb-5 font-thin ">$0.00</h6>
+      <div className="h-[20%] mx-2 my-2 space-y-1">
+        <h5 className="text-nowrap">{Nombre}</h5>
+        <h6 className="font-thin ">{formatoMoneda(Precio)}</h6>
+      </div>
     </div>
   );
 };

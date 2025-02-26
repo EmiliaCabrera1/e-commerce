@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Item from "./Item";
 
-const items = [1, 2, 3, 4, 5, 6, 7, 8];
+const ContenedorItems = ({ items }) => {
+  const [cargando, setCargando] = useState(true);
 
-const ContenedorItems = () => {
+  useEffect(() => {
+    console.log("Items", items);
+    if (items.length > 0) {
+      console.log(items);
+      setCargando(false);
+      console.log("Items Encontrados");
+    } else {
+      setCargando(true);
+      console.log("No hay items");
+    }
+  }, [items]);
+
   return (
     <div
       id="contenedor"
       className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10 mx-20 sm:mx-25 mt-15"
     >
-      {items.map((item) => {
-        return <Item id={item} />;
-      })}
+      {!cargando && items.map((item) => <Item key={item.Id} {...item} />)}
     </div>
   );
 };

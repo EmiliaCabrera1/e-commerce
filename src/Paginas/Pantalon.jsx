@@ -1,26 +1,26 @@
 import { useState, useEffect } from "react";
 import ContenedorItems from "../Componentes/ContenedorItems";
 import Titulo from "../Componentes/Titulo";
-import { obtenerVestidos } from "../Servicios/productos";
+import { obtenerPantalon } from "../Servicios/productos";
 
-function Vestidos() {
+function Pantalon() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    const traerVestidos = async () => {
-      const vestidos = await obtenerVestidos();
-      setItems(vestidos);
+    const traerPantalon = async () => {
+      const Pantalon = await obtenerPantalon();
+      setItems(Pantalon);
     };
 
-    traerVestidos();
+    traerPantalon();
   }, []);
 
   return (
     <>
-      <Titulo titulo="Vestidos" />
+      <Titulo titulo="Pantalones" />
       <ContenedorItems items={items} />
     </>
   );
 }
 
-export default Vestidos;
+export default Pantalon;
