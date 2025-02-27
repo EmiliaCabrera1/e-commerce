@@ -17,7 +17,7 @@ import Hogar from "./Paginas/Hogar";
 const Rutas = () => {
   return (
     <Routes>
-      <Route path="/" element={<Inicio />} />
+      <Route path="/inicio" element={<Inicio />} />
       <Route path="/vestidos" element={<Vestidos />} />
       <Route path="/espejos" element={<Espejos />} />
       <Route path="/floreros" element={<Floreros />} />
