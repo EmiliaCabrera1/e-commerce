@@ -15,7 +15,7 @@ import Indumentaria from "./Paginas/Indumentaria";
 import Hogar from "./Paginas/Hogar";
 import Login from "./Paginas/Login";
 import Favoritos from "./Paginas/Favoritos";
-import DetalleItem from "./Paginas/DetalleItem";
+
 const Rutas = () => {
   return (
     <Routes>
@@ -35,7 +35,6 @@ const Rutas = () => {
       <Route path="/registro" element={<Registro />} />
       <Route path="/login" element={<Login />} />
       <Route path="/favoritos" element={<Favoritos />} />
-      <Route path="/detalle" element={<DetalleItem />} />
     </Routes>
   );
 };

@@ -13,7 +13,10 @@ const AlertaInicio = ({ isOpen, onClose }) => {
         </p>
         <button
           className="w-[80%] sm:w-[40%] p-4 my-5 text-lg sm:text-xl bg-[#d9d9d9] rounded-lg shadow-md border border-[#737171] mx-auto block"
-          onClick={() => navigate("/login")}
+          onClick={() => {
+            navigate("/login");
+            onClose();
+          }}
         >
           Iniciar Sesion
         </button>
