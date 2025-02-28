@@ -57,7 +57,18 @@ const Encabezado = () => {
             <img
               src="./assets/menu.svg"
               alt="Menu"
-              className="h-full w-full object-contain"
+              className={`h-full w-full object-contain ${
+                menuExpandido ? "hidden" : "block"
+              }`}
+              id="menu"
+            />
+            <img
+              src="./assets/cerrar.svg"
+              alt="cerrar"
+              className={`h-full w-full object-contain ${
+                menuExpandido ? "block" : "hidden"
+              }`}
+              id="cerrar"
             />
           </button>
         </div>

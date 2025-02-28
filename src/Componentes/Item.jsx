@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { formatoMoneda } from "../Utilidad/Formato";
 import { useUsuario } from "../Context/UsuarioContext";
 import AlertaInicio from "./AlertaInicio";
+import DetalleItem from "./DetalleItem";
 
 const Item = ({ Id, ImagenUrl, Nombre, Precio }) => {
   const { favoritos, agregarFavorito, quitarFavorito, usuario } = useUsuario();
   const [loginPopup, setLoginPopup] = useState(false);
+  const [detallePopup, setDetallePopup] = useState(false);
 
   const esFavorito = favoritos.includes(Id) && usuario;
 
@@ -22,7 +24,10 @@ const Item = ({ Id, ImagenUrl, Nombre, Precio }) => {
   };
 
   return (
-    <div className="relative bg-beige/30 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.30)] w-full aspect-[2/3]">
+    <div
+      onClick={() => setDetallePopup(true)}
+      className="relative bg-beige/30 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.30)] w-full aspect-[2/3]"
+    >
       <img
         src={ImagenUrl}
         alt="Foto del vestido"
@@ -41,6 +46,10 @@ const Item = ({ Id, ImagenUrl, Nombre, Precio }) => {
         <h6 className="font-thin ">{formatoMoneda(Precio)}</h6>
       </div>
       <AlertaInicio isOpen={loginPopup} onClose={() => setLoginPopup(false)} />
+      <DetalleItem
+        isOpen={detallePopup}
+        onClose={() => setDetallePopup(false)}
+      />
     </div>
   );
 };
