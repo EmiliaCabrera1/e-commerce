@@ -15,7 +15,7 @@ const Item = ({ Id, ImagenUrl, Nombre, Precio }) => {
   };
 
   return (
-    <div className="relative bg-beige/30 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] w-full aspect-[2/3]">
+    <div className="relative bg-beige/30 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.30)] w-full aspect-[2/3]">
       <img
         src={ImagenUrl}
         alt="Foto del vestido"

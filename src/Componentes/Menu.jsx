@@ -12,14 +12,14 @@ const Menu = () => {
   };
 
   return (
-    <div className="absolute top-[8%] right-0 z-20">
-      <div className="flex h-[10vh] items-center justify-center pr-7 gap-5 bg-[#d9d9d9] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] -ml-3 pl-10 pt-4">
+    <div className="absolute top-[8%] right-0 z-20 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.20)]">
+      <div className="flex h-[10vh] items-center justify-center pr-7 gap-5 bg-[#d9d9d9] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.30)] -ml-3 pl-10 pt-4">
         <img src="./assets/usuario.svg" alt="msn" className="max-h-5" />
         {!usuario && <Link to="/login">Iniciar Sesion</Link>}
         {usuario && <h1>{usuario.displayName ?? usuario.email}</h1>}
       </div>
-      <div className=" flex-col pr-7 h-fit pb-6 bg-[#bbb4a9] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] pl-10 pt-4">
-        <ul className="space-y-2">
+      <div className=" flex-col pr-7 h-fit pb-6 bg-beige shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] pl-10 pt-4 ">
+        <ul className="space-y-2 text-white text-lg">
           <li>
             <Link to="/">Inicio</Link>
           </li>
@@ -60,7 +60,7 @@ const Menu = () => {
             <button onClick={salir}>salir</button>
           </li>
         </ul>
-        <button className="flex justify-end ml-auto mr-15 mt-10">
+        <button className="flex justify-end ml-auto mr-15 mt-10 text-white text-lg">
           Contacto
         </button>
       </div>

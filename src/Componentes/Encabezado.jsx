@@ -11,9 +11,9 @@ const Encabezado = () => {
     setMenuExpandido(!menuExpandido);
   };
   return (
-    <header className="flex items-center justify-between bg-beige sm:p-2 px-8 h-[10%] w-full min-h-[10%] max-h-[10%]">
+    <header className="flex items-center justify-between bg-beige sm:p-2 px-8 h-[10%] w-full min-h-[10%] max-h-[10%] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
       <div className="ml-6 pr-10 flex justify-start h-full w-[40%]">
-        <button className="w-auto">
+        <button className="w-auto py-4">
           <img
             src="./assets/logo.svg"
             alt="Logo"
