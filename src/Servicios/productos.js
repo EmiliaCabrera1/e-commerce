@@ -1,4 +1,11 @@
-import { collection, query, getDocs, setDoc } from "firebase/firestore";
+import {
+  collection,
+  query,
+  getDocs,
+  setDoc,
+  doc,
+  getDoc,
+} from "firebase/firestore";
 import { db } from "../Firebase/config";
 
 export const obtenerVestidos = async () => {
@@ -128,5 +135,21 @@ export const actualizarFavoritos = async (usuario, favoritos) => {
     console.log("Document successfully written!");
   } catch (error) {
     console.error("Error writing document: ", error);
+  }
+};
+
+export const obtenerFavoritos = async (usuario) => {
+  try {
+    const docRef = doc(db, "Favoritos", usuario.uid);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      const favoritos = docSnap.data().Favoritos || [];
+      return favoritos;
+    } else {
+      return [];
+    }
+  } catch (error) {
+    console.log(error);
+    return [];
   }
 };

@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { actualizarFavoritos } from "../Servicios/productos";
+import { obtenerFavoritos } from "../Servicios/productos";
 
 const UsuarioContext = createContext();
 
@@ -11,15 +11,17 @@ export const useUsuario = () => {
 export const UsuarioProvider = ({ children }) => {
   const [usuario, setUsuario] = useState(null);
   const [favoritos, setFavoritos] = useState([]);
-  const navigate = useNavigate();
+
+  console.log(favoritos);
+
   const actualizarUsuario = (user) => {
     setUsuario(user);
+    if (user) {
+      setearFavoritos(user);
+    }
   };
 
   const agregarFavorito = (id) => {
-    if (!usuario) {
-      navigate("/login");
-    }
     const nuevoFavorito = [...favoritos, id];
     setFavoritos(nuevoFavorito);
     actualizarFavoritos(usuario, nuevoFavorito);
@@ -35,6 +37,10 @@ export const UsuarioProvider = ({ children }) => {
     setFavoritos([]);
   };
 
+  const setearFavoritos = async (usuario) => {
+    setFavoritos(await obtenerFavoritos(usuario));
+  };
+
   return (
     <UsuarioContext.Provider
       value={{
@@ -44,6 +50,7 @@ export const UsuarioProvider = ({ children }) => {
         agregarFavorito,
         quitarFavorito,
         limpiarFavoritos,
+        setearFavoritos,
       }}
     >
       {children}

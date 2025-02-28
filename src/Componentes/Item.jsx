@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { formatoMoneda } from "../Utilidad/Formato";
 import { useUsuario } from "../Context/UsuarioContext";
+import AlertaInicio from "./AlertaInicio";
 
 const Item = ({ Id, ImagenUrl, Nombre, Precio }) => {
   const { favoritos, agregarFavorito, quitarFavorito, usuario } = useUsuario();
+  const [loginPopup, setLoginPopup] = useState(false);
+
   const esFavorito = favoritos.includes(Id) && usuario;
 
   const cambiarFavorito = (id) => {
-    if (esFavorito) {
-      quitarFavorito(id);
+    if (!usuario) {
+      setLoginPopup(true);
     } else {
-      agregarFavorito(id);
+      if (esFavorito) {
+        quitarFavorito(id);
+      } else {
+        agregarFavorito(id);
+      }
     }
   };
 
@@ -33,6 +40,7 @@ const Item = ({ Id, ImagenUrl, Nombre, Precio }) => {
         <h5 className="text-nowrap">{Nombre}</h5>
         <h6 className="font-thin ">{formatoMoneda(Precio)}</h6>
       </div>
+      <AlertaInicio isOpen={loginPopup} onClose={() => setLoginPopup(false)} />
     </div>
   );
 };

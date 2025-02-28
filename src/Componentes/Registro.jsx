@@ -78,14 +78,14 @@ const Registro = () => {
         )}
         <button
           type="submit"
-          className="w-[90%] sm:w-[50%] p-4 my-5 text-xl sm:text-2xl bg-[#d9d9d9] rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border border-[#737171]"
+          className="w-[90%] sm:w-[50%] p-4 my-5 text-xl md:text-2xl bg-[#d9d9d9] rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border border-[#737171]"
         >
           Continuar
         </button>
         <button
           type="button"
           onClick={manejarAutenticarConGoogle}
-          className="flex items-center justify-center gap-5 w-[90%] sm:w-[50%] p-4 my-1 text-xl sm:text-2xl bg-[#d9d9d9] rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border border-[#737171]"
+          className="flex items-center justify-center gap-5 w-[90%] sm:w-[50%] p-4 my-1 text-xl md:text-2xl bg-[#d9d9d9] rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border border-[#737171]"
         >
           <span>Continuar con Gmail</span>
           <img src="./assets/logo-gmail.svg" alt="logo gmail" className="h-6" />
