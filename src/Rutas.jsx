@@ -13,10 +13,12 @@ import VelasDifusores from "./Paginas/VelasDifusores";
 import ItemsGenerales from "./Paginas/ItemsGenerales";
 import Indumentaria from "./Paginas/Indumentaria";
 import Hogar from "./Paginas/Hogar";
+import Login from "./Paginas/Login";
 
 const Rutas = () => {
   return (
     <Routes>
+      <Route path="/" element={<Inicio />} />
       <Route path="/inicio" element={<Inicio />} />
       <Route path="/vestidos" element={<Vestidos />} />
       <Route path="/espejos" element={<Espejos />} />
@@ -30,6 +32,7 @@ const Rutas = () => {
       <Route path="/indumentaria" element={<Indumentaria />} />
       <Route path="/hogar" element={<Hogar />} />
       <Route path="/registro" element={<Registro />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 };

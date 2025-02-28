@@ -2,7 +2,6 @@ import React from "react";
 import { formatoMoneda } from "../Utilidad/Formato";
 
 const Item = ({ Id, ImagenUrl, Nombre, Precio }) => {
-  console.log(ImagenUrl);
   return (
     <div className="relative bg-beige/30 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] w-full aspect-[2/3]">
       <img

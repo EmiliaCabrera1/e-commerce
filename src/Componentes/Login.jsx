@@ -1,29 +1,28 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../Context/AuthContext";
-import { Link } from "react-router-dom";
 import Input from "../Componentes/Input";
+import { Link } from "react-router-dom";
 
-const Registro = () => {
+const Login = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
-  const { registrarUsuario, autenticarConGoogle } = useAuth();
+  const { login, autenticarConGoogle } = useAuth();
   const [formError, setFormError] = React.useState("");
 
   const onSubmit = async (data) => {
     try {
-      await registrarUsuario({
+      await login({
         email: data.email,
         password: data.contraseña,
       });
       setFormError(null);
     } catch (error) {
-      setFormError(`Error creando usuario:, ${error.message}`);
+      setFormError(`Fallo la autenticación:, ${error.message}`);
     }
   };
 
@@ -34,8 +33,6 @@ const Registro = () => {
       setFormError(`Error en Google Sign-In: ${error.message}`);
     }
   };
-
-  const contraseña = watch("contraseña", "");
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -58,18 +55,6 @@ const Registro = () => {
             error={errors?.contraseña?.message}
             {...register("contraseña", { required: "Password requerido" })}
           />
-          <Input
-            type="password"
-            name="confirmarContraseña"
-            id="confirmarContraseña"
-            placeholder="confirmar contraseña"
-            error={errors?.confirmarContraseña?.message}
-            {...register("confirmarContraseña", {
-              required: "Password requerido",
-              validate: (value) =>
-                value === contraseña || "Las contraseñas no coinciden",
-            })}
-          />
         </div>
         {formError && (
           <span className="ml-2.5 text-red-500 text-sm mt-1">{formError}</span>
@@ -89,9 +74,9 @@ const Registro = () => {
           <img src="./assets/logo-gmail.svg" alt="logo gmail" className="h-6" />
         </button>
         <div className="flex text-xl mt-5 ">
-          <h4>Ya tenes cuenta?</h4>
-          <Link to="/login" className="mx-4 text-2xl">
-            Continuar
+          <h4>No tenes cuenta?</h4>
+          <Link to="/registro" className="mx-4 text-2xl">
+            Registrar
           </Link>
         </div>
       </div>
@@ -99,4 +84,4 @@ const Registro = () => {
   );
 };
 
-export default Registro;
+export default Login;

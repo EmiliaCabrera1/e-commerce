@@ -5,14 +5,10 @@ const ContenedorItems = ({ items }) => {
   const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
-    console.log("Items", items);
     if (items.length > 0) {
-      console.log(items);
       setCargando(false);
-      console.log("Items Encontrados");
     } else {
       setCargando(true);
-      console.log("No hay items");
     }
   }, [items]);
 
