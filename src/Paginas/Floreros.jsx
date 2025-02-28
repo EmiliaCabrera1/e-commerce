@@ -5,11 +5,14 @@ import { obtenerFloreros } from "../Servicios/productos";
 
 function Floreros() {
   const [items, setItems] = useState([]);
+  const [cargando, setCargando] = useState(false);
 
   useEffect(() => {
     const traerFloreros = async () => {
+      setCargando(true);
       const Floreros = await obtenerFloreros();
       setItems(Floreros);
+      setCargando(false);
     };
 
     traerFloreros();
@@ -18,7 +21,7 @@ function Floreros() {
   return (
     <>
       <Titulo titulo="Floreros" />
-      <ContenedorItems items={items} />
+      <ContenedorItems items={items} cargando={cargando} />
     </>
   );
 }

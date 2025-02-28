@@ -7,9 +7,11 @@ import { obtenerVelasDifusores } from "../Servicios/productos";
 
 function hogar() {
   const [items, setItems] = useState([]);
+  const [cargando, setCargando] = useState(false);
 
   useEffect(() => {
     const traerTodosLosItems = async () => {
+      setCargando(true);
       let _items = [];
       const espejos = await obtenerEspejos();
       _items.push(...espejos);
@@ -19,6 +21,7 @@ function hogar() {
       _items.push(...velasdifusores);
 
       setItems(_items);
+      setCargando(false);
     };
 
     traerTodosLosItems();
@@ -27,7 +30,7 @@ function hogar() {
   return (
     <>
       <Titulo titulo="Hogar" />
-      <ContenedorItems items={items} />
+      <ContenedorItems items={items} cargando={cargando} />
     </>
   );
 }

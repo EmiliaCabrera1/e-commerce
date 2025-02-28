@@ -66,6 +66,7 @@ export const AuthProvider = ({ children }) => {
     signOut(auth)
       .then(() => {
         console.log("Cerraste sesión");
+        navigate("/login");
       })
       .catch((error) => {
         console.log(error);

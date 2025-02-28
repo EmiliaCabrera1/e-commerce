@@ -5,11 +5,14 @@ import { obtenerMonos } from "../Servicios/productos";
 
 function Monos() {
   const [items, setItems] = useState([]);
+  const [cargando, setCargando] = useState(false);
 
   useEffect(() => {
     const traerMonos = async () => {
+      setCargando(true);
       const Monos = await obtenerMonos();
       setItems(Monos);
+      setCargando(false);
     };
 
     traerMonos();
@@ -18,7 +21,7 @@ function Monos() {
   return (
     <>
       <Titulo titulo="Monos" />
-      <ContenedorItems items={items} />
+      <ContenedorItems items={items} cargando={cargando} />
     </>
   );
 }

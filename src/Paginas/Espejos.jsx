@@ -5,11 +5,14 @@ import { obtenerEspejos } from "../Servicios/productos";
 
 function Espejos() {
   const [items, setItems] = useState([]);
+  const [cargando, setCargando] = useState(false);
 
   useEffect(() => {
     const traerEspejos = async () => {
+      setCargando(true);
       const Espejos = await obtenerEspejos();
       setItems(Espejos);
+      setCargando(false);
     };
 
     traerEspejos();
@@ -18,7 +21,7 @@ function Espejos() {
   return (
     <>
       <Titulo titulo="Espejos" />
-      <ContenedorItems items={items} />
+      <ContenedorItems items={items} cargando={cargando} />
     </>
   );
 }

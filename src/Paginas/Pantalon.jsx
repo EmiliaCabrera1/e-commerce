@@ -5,11 +5,14 @@ import { obtenerPantalon } from "../Servicios/productos";
 
 function Pantalon() {
   const [items, setItems] = useState([]);
+  const [cargando, setCargando] = useState(false);
 
   useEffect(() => {
     const traerPantalon = async () => {
+      setCargando(true);
       const Pantalon = await obtenerPantalon();
       setItems(Pantalon);
+      setCargando(false);
     };
 
     traerPantalon();
@@ -18,7 +21,7 @@ function Pantalon() {
   return (
     <>
       <Titulo titulo="Pantalones" />
-      <ContenedorItems items={items} />
+      <ContenedorItems items={items} cargando={cargando} />
     </>
   );
 }

@@ -14,6 +14,7 @@ import ItemsGenerales from "./Paginas/ItemsGenerales";
 import Indumentaria from "./Paginas/Indumentaria";
 import Hogar from "./Paginas/Hogar";
 import Login from "./Paginas/Login";
+import Favoritos from "./Paginas/Favoritos";
 
 const Rutas = () => {
   return (
@@ -33,6 +34,7 @@ const Rutas = () => {
       <Route path="/hogar" element={<Hogar />} />
       <Route path="/registro" element={<Registro />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/favoritos" element={<Favoritos />} />
     </Routes>
   );
 };

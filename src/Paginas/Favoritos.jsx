@@ -1,14 +1,19 @@
 import { useState, useEffect } from "react";
 import ContenedorItems from "../Componentes/ContenedorItems";
 import Titulo from "../Componentes/Titulo";
+import { obtenerEspejos } from "../Servicios/productos";
+import { obtenerFloreros } from "../Servicios/productos";
 import { obtenerMonos } from "../Servicios/productos";
 import { obtenerPantalon } from "../Servicios/productos";
 import { obtenerPolleras } from "../Servicios/productos";
 import { obtenerRemerasTops } from "../Servicios/productos";
+import { obtenerVelasDifusores } from "../Servicios/productos";
 import { obtenerVestidos } from "../Servicios/productos";
+import { useUsuario } from "../Context/UsuarioContext";
 
-function Indumentaria() {
+function Favoritos() {
   const [items, setItems] = useState([]);
+  const { favoritos } = useUsuario();
   const [cargando, setCargando] = useState(false);
 
   useEffect(() => {
@@ -25,19 +30,31 @@ function Indumentaria() {
       _items.push(...pantalon);
       const monos = await obtenerMonos();
       _items.push(...monos);
-      setCargando(false);
+      const espejos = await obtenerEspejos();
+      _items.push(...espejos);
+      const floreros = await obtenerFloreros();
+      _items.push(...floreros);
+      const velasdifusores = await obtenerVelasDifusores();
+      _items.push(...velasdifusores);
+      _items = _items.filter((item) => favoritos.includes(item.Id));
       setItems(_items);
+      setCargando(false);
     };
 
     traerTodosLosItems();
   }, []);
 
+  useEffect(() => {
+    const _items = items.filter((item) => favoritos.includes(item.Id));
+    setItems(_items);
+  }, [favoritos]);
+
   return (
     <>
-      <Titulo titulo="Indumentaria" />
+      <Titulo titulo="Favoritos" />
       <ContenedorItems items={items} cargando={cargando} />
     </>
   );
 }
 
-export default Indumentaria;
+export default Favoritos;

@@ -12,9 +12,11 @@ import { obtenerVestidos } from "../Servicios/productos";
 
 function itemsGenerales() {
   const [items, setItems] = useState([]);
+  const [cargando, setCargando] = useState(false);
 
   useEffect(() => {
     const traerTodosLosItems = async () => {
+      setCargando(true);
       let _items = [];
       const vestidos = await obtenerVestidos();
       _items.push(...vestidos);
@@ -34,6 +36,7 @@ function itemsGenerales() {
       _items.push(...velasdifusores);
 
       setItems(_items);
+      setCargando(false);
     };
 
     traerTodosLosItems();
@@ -42,7 +45,7 @@ function itemsGenerales() {
   return (
     <>
       <Titulo titulo="Todo los productos" />
-      <ContenedorItems items={items} />
+      <ContenedorItems items={items} cargando={cargando} />
     </>
   );
 }

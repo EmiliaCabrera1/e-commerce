@@ -5,11 +5,14 @@ import { obtenerPolleras } from "../Servicios/productos";
 
 function Polleras() {
   const [items, setItems] = useState([]);
+  const [cargando, setCargando] = useState(false);
 
   useEffect(() => {
     const traerPolleras = async () => {
+      setCargando(true);
       const Polleras = await obtenerPolleras();
       setItems(Polleras);
+      setCargando(false);
     };
 
     traerPolleras();
@@ -18,7 +21,7 @@ function Polleras() {
   return (
     <>
       <Titulo titulo="Polleras" />
-      <ContenedorItems items={items} />
+      <ContenedorItems items={items} cargando={cargando} />
     </>
   );
 }

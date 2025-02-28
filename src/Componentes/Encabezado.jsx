@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import Menu from "./Menu";
+import { Link } from "react-router-dom";
+import { useUsuario } from "../Context/UsuarioContext";
 
 const Encabezado = () => {
   const [menuExpandido, setMenuExpandido] = useState(false);
+  const { usuario } = useUsuario();
 
   const toggleMenu = () => {
     setMenuExpandido(!menuExpandido);
@@ -20,13 +23,16 @@ const Encabezado = () => {
       </div>
       <div className="w-[60%] h-full justify-end flex gap-12 items-center mr-8">
         <div className=" flex justify-end my-4 max-h-full gap-3">
-          <button className=" h-full w-auto">
+          <Link
+            to={usuario ? "/favoritos" : "/login"}
+            className=" h-full w-auto"
+          >
             <img
               src="./assets/mg.svg"
               alt="Favoritos"
               className="h-6 w-full object-contain"
             />
-          </button>
+          </Link>
           <button className=" h-full w-auto">
             <img
               src="./assets/carrito.svg"
