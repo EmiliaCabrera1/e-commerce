@@ -1,4 +1,4 @@
-import { collection, query, getDocs, addDoc } from "firebase/firestore";
+import { collection, query, getDocs, setDoc } from "firebase/firestore";
 import { db } from "../Firebase/config";
 
 export const obtenerVestidos = async () => {
@@ -118,5 +118,15 @@ export const obtenerEspejos = async () => {
   } catch (error) {
     console.log(error);
     return [];
+  }
+};
+
+export const actualizarFavoritos = async (usuario, favoritos) => {
+  try {
+    const docRef = doc(db, "Favoritos", usuario.uid);
+    await setDoc(docRef, { Favoritos: favoritos }, { merge: true });
+    console.log("Document successfully written!");
+  } catch (error) {
+    console.error("Error writing document: ", error);
   }
 };

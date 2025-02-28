@@ -56,8 +56,8 @@ const Menu = () => {
           <li>
             <Link to="/itemsgenerales">Ver todos</Link>
           </li>
-          <li>
-            <button onClick={salir}>salir</button>
+          <li className="mt-5">
+            <button onClick={salir}>Cerrar Sesion</button>
           </li>
         </ul>
         <button className="flex justify-end ml-auto mr-15 mt-10 text-white text-lg">

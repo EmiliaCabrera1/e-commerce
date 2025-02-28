@@ -17,7 +17,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [usuario, setUsuario] = useState(null);
   const navigate = useNavigate();
-  const { actualizarUsuario } = useUsuario();
+  const { actualizarUsuario, limpiarFavoritos } = useUsuario();
 
   useEffect(() => {
     onAuthStateChanged(auth, (usuario) => {
@@ -28,6 +28,7 @@ export const AuthProvider = ({ children }) => {
       } else {
         actualizarUsuario(null);
         setUsuario(null);
+        limpiarFavoritos();
       }
     });
   }, []);

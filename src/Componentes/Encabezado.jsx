@@ -11,9 +11,9 @@ const Encabezado = () => {
     setMenuExpandido(!menuExpandido);
   };
   return (
-    <header className="flex items-center justify-between bg-beige sm:p-2 px-8 h-[10%] w-full min-h-[10%] max-h-[10%] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
-      <div className="ml-6 pr-10 flex justify-start h-full w-[40%]">
-        <button className="w-auto py-4">
+    <header className="flex items-center justify-between bg-beige p-2 sm:px-8 h-[10%] w-full min-h-[10%] max-h-[10%] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] z-20">
+      <div className="ml-2 sm:ml-6 pr-5 sm:pr-10 flex justify-start h-full w-[40%]">
+        <button className="w-auto  sm:py-4">
           <img
             src="./assets/logo.svg"
             alt="Logo"
@@ -21,7 +21,7 @@ const Encabezado = () => {
           />
         </button>
       </div>
-      <div className="w-[60%] h-full justify-end flex gap-12 items-center mr-8">
+      <div className="w-[50%] sm:w-[60%] h-full justify-end flex gap-8 sm:gap-12 items-center mr-2 sm:mr-8">
         <div className=" flex justify-end my-4 max-h-full gap-3">
           <Link
             to={usuario ? "/favoritos" : "/login"}

@@ -3,8 +3,8 @@ import { formatoMoneda } from "../Utilidad/Formato";
 import { useUsuario } from "../Context/UsuarioContext";
 
 const Item = ({ Id, ImagenUrl, Nombre, Precio }) => {
-  const { favoritos, agregarFavorito, quitarFavorito } = useUsuario();
-  const esFavorito = favoritos.includes(Id);
+  const { favoritos, agregarFavorito, quitarFavorito, usuario } = useUsuario();
+  const esFavorito = favoritos.includes(Id) && usuario;
 
   const cambiarFavorito = (id) => {
     if (esFavorito) {
