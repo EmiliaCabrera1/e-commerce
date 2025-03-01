@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ItemCarrito from "../Componentes/ItemCarrito";
 import Titulo from "../Componentes/Titulo";
+import FinalizarCompra from "../Componentes/FinalizarCompra";
 import { obtenerEspejos } from "../Servicios/productos";
 import { obtenerFloreros } from "../Servicios/productos";
 import { obtenerMonos } from "../Servicios/productos";
@@ -10,7 +11,6 @@ import { obtenerRemerasTops } from "../Servicios/productos";
 import { obtenerVelasDifusores } from "../Servicios/productos";
 import { obtenerVestidos } from "../Servicios/productos";
 import { useUsuario } from "../Context/UsuarioContexto";
-import FinalizarCompra from "../Componentes/FinalizarCompra";
 import { formatoMoneda } from "../Utilidad/Formato";
 
 function Carrito() {

@@ -68,10 +68,15 @@ export const UsuarioProvider = ({ children }) => {
     setItemsCarrito(await obtenerCarrito(usuario));
   };
 
-  const finalizarCompra = async (infoUsuario, productos) => {
+  const finalizarCompra = async (infoUsuario, productos, totalOrden) => {
     try {
-      const ordenCompraNro = crearOrdenCompra(infoUsuario, productos, total);
+      const ordenCompraNro = crearOrdenCompra(
+        infoUsuario,
+        productos,
+        totalOrden
+      );
       setItemsCarrito([]);
+      actualizarCarrito(usuario, []);
       return ordenCompraNro;
     } catch (e) {
       console.log("Fallo la creacion de la Orden de Compra.", e.message);

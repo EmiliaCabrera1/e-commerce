@@ -179,13 +179,13 @@ export const obtenerCarrito = async (usuario) => {
   }
 };
 
-export const crearOrdenCompra = async (infoUsuario, productos, total) => {
+export const crearOrdenCompra = async (infoUsuario, productos, totalOrden) => {
   const datos = {
     Fecha: new Date().toLocaleDateString(),
     Hora: new Date().toLocaleTimeString(),
     Usuario: infoUsuario,
     Productos: productos,
-    TotalOrden: total,
+    TotalOrden: totalOrden,
   };
 
   const docRef = await addDoc(collection(db, "OrdenCompra"), datos);
