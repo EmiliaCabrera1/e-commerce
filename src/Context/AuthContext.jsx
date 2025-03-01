@@ -9,7 +9,7 @@ import {
 } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../Firebase/config";
-import { useUsuario } from "./UsuarioContext";
+import { useUsuario } from "./UsuarioContexto";
 import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
@@ -51,7 +51,6 @@ export const AuthProvider = ({ children }) => {
     const token = credencial.accessToken;
     const usuario = result.user;
 
-    console.log("Usuario autenticado:", usuario);
     navigate("/");
     return usuario;
   };
@@ -59,7 +58,6 @@ export const AuthProvider = ({ children }) => {
   const login = ({ email, password }) => {
     signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
       const usuario = userCredential.user;
-      console.log("Usuario autenticado:", usuario);
       navigate("/");
     });
   };
@@ -67,7 +65,6 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     signOut(auth)
       .then(() => {
-        console.log("Cerraste sesión");
         navigate("/login");
       })
       .catch((error) => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useUsuario } from "../Context/UsuarioContext";
+import { useUsuario } from "../Context/UsuarioContexto";
 import { useAuth } from "../Context/AuthContext";
 
 const Menu = () => {
@@ -56,9 +56,11 @@ const Menu = () => {
           <li>
             <Link to="/itemsgenerales">Ver todos</Link>
           </li>
-          <li className="mt-5">
-            <button onClick={salir}>Cerrar Sesion</button>
-          </li>
+          {usuario && (
+            <li className="mt-5">
+              <button onClick={salir}>Cerrar Sesion</button>
+            </li>
+          )}
         </ul>
         <button className="flex justify-end ml-auto mr-15 mt-10 text-white text-lg">
           Contacto

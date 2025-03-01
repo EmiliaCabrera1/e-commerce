@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { formatoMoneda } from "../Utilidad/Formato";
-import { useUsuario } from "../Context/UsuarioContext";
+import { useUsuario } from "../Context/UsuarioContexto";
+import AlertaInicio from "./AlertaInicio";
 
 const DetalleItem = ({ isOpen, onClose, Id, ImagenUrl, Nombre, Precio }) => {
   if (!isOpen) return null;
-  const { agregarCarrito } = useUsuario();
+  const { agregarCarrito, usuario } = useUsuario();
 
   const handleClose = (event) => {
     event.stopPropagation();
@@ -12,10 +13,16 @@ const DetalleItem = ({ isOpen, onClose, Id, ImagenUrl, Nombre, Precio }) => {
   };
 
   const agregarItem = (event) => {
-    event.stopPropagation();
-    agregarCarrito(Id);
-    onClose();
+    if (usuario) {
+      event.stopPropagation();
+      agregarCarrito(Id);
+      onClose();
+    } else {
+      setLoginPopup(true);
+    }
   };
+
+  const [loginPopup, setLoginPopup] = useState(false);
 
   return (
     <div className="fixed inset-0 bg-beige/70 flex items-center justify-center z-50">
@@ -65,6 +72,10 @@ const DetalleItem = ({ isOpen, onClose, Id, ImagenUrl, Nombre, Precio }) => {
               >
                 Agregar al carrito
               </button>
+              <AlertaInicio
+                isOpen={loginPopup}
+                onClose={() => setLoginPopup(false)}
+              />
             </div>
           </div>
         </div>

@@ -3,21 +3,20 @@ import {
   actualizarFavoritos,
   actualizarCarrito,
   obtenerCarrito,
+  crearOrdenCompra,
 } from "../Servicios/productos";
 import { obtenerFavoritos } from "../Servicios/productos";
 
-const UsuarioContext = createContext();
+const UsuarioContexto = createContext();
 
 export const useUsuario = () => {
-  return useContext(UsuarioContext);
+  return useContext(UsuarioContexto);
 };
 
 export const UsuarioProvider = ({ children }) => {
   const [usuario, setUsuario] = useState(null);
   const [favoritos, setFavoritos] = useState([]);
   const [itemsCarrito, setItemsCarrito] = useState([]);
-
-  console.log("itemsCarrito", itemsCarrito);
 
   const actualizarUsuario = (user) => {
     setUsuario(user);
@@ -35,7 +34,6 @@ export const UsuarioProvider = ({ children }) => {
 
   const quitarFavorito = (id) => {
     const nuevoFavorito = favoritos.filter((favorito) => favorito !== id);
-    console.log("quitar favorito", nuevoFavorito);
     setFavoritos(nuevoFavorito);
     actualizarFavoritos(usuario, nuevoFavorito);
   };
@@ -70,8 +68,18 @@ export const UsuarioProvider = ({ children }) => {
     setItemsCarrito(await obtenerCarrito(usuario));
   };
 
+  const finalizarCompra = async (infoUsuario, productos) => {
+    try {
+      const ordenCompraNro = crearOrdenCompra(infoUsuario, productos, total);
+      setItemsCarrito([]);
+      return ordenCompraNro;
+    } catch (e) {
+      console.log("Fallo la creacion de la Orden de Compra.", e.message);
+    }
+  };
+
   return (
-    <UsuarioContext.Provider
+    <UsuarioContexto.Provider
       value={{
         usuario,
         actualizarUsuario,
@@ -85,9 +93,10 @@ export const UsuarioProvider = ({ children }) => {
         quitarCarrito,
         limpiarCarrito,
         setearCarrito,
+        finalizarCompra,
       }}
     >
       {children}
-    </UsuarioContext.Provider>
+    </UsuarioContexto.Provider>
   );
 };

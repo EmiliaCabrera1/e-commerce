@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Menu from "./Menu";
 import { useNavigate } from "react-router-dom";
-import { useUsuario } from "../Context/UsuarioContext";
+import { useUsuario } from "../Context/UsuarioContexto";
 import AlertaInicio from "./AlertaInicio";
 
 const Encabezado = () => {
   const [menuExpandido, setMenuExpandido] = useState(false);
-  const { usuario } = useUsuario();
+  const { usuario, itemsCarrito } = useUsuario();
   const [loginPopup, setLoginPopup] = useState(false);
   const navigate = useNavigate();
   const funcionOnClick = (path) => {
@@ -23,7 +23,12 @@ const Encabezado = () => {
   return (
     <header className="flex items-center justify-between bg-beige p-2 sm:px-8 h-[10%] w-full min-h-[10%] max-h-[10%] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] z-20">
       <div className="ml-2 sm:ml-6 pr-5 sm:pr-10 flex justify-start h-full w-[40%]">
-        <button className="w-auto  sm:py-4">
+        <button
+          onClick={() => {
+            navigate("/");
+          }}
+          className="w-auto  sm:py-4"
+        >
           <img
             src="./assets/logo.svg"
             alt="Logo"
@@ -44,7 +49,7 @@ const Encabezado = () => {
             />
           </button>
           <button
-            className=" h-full w-auto"
+            className=" h-full w-auto relative"
             onClick={() => funcionOnClick("/carrito")}
           >
             <img
@@ -52,6 +57,11 @@ const Encabezado = () => {
               alt="Carrito"
               className="h-6 w-full object-contain"
             />
+            {usuario && (
+              <span className="absolute -bottom-2 -right-2 w-4 h-4 bg-[#737171] rounded-full ">
+                {itemsCarrito.length}
+              </span>
+            )}
           </button>
         </div>
         <div className="flex justify-end max-h-full">

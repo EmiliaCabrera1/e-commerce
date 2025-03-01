@@ -17,7 +17,8 @@ import Login from "./Paginas/Login";
 import Favoritos from "./Paginas/Favoritos";
 import Carrito from "./Paginas/Carrito";
 import ProtectedRoute from "./Componentes/ProtectedRoute";
-import NotFound from "./Paginas/NotFound";
+import Pagina404 from "./Paginas/404";
+import ConfirmacionCompra from "./Paginas/ConfirmacionCompra";
 
 const Rutas = () => {
   return (
@@ -42,7 +43,8 @@ const Rutas = () => {
         element={<ProtectedRoute element={Favoritos} />}
       />
       <Route path="/carrito" element={<ProtectedRoute element={Carrito} />} />
-      <Route path="*" element={<NotFound />} />
+      <Route path="*" element={<Pagina404 />} />
+      <Route path="Compra" element={<ConfirmacionCompra />} />
     </Routes>
   );
 };

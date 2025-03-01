@@ -9,15 +9,21 @@ import { obtenerPolleras } from "../Servicios/productos";
 import { obtenerRemerasTops } from "../Servicios/productos";
 import { obtenerVelasDifusores } from "../Servicios/productos";
 import { obtenerVestidos } from "../Servicios/productos";
-import { useUsuario } from "../Context/UsuarioContext";
-import FinalizarCompra from "../Componentes/Finalizar Compra";
+import { useUsuario } from "../Context/UsuarioContexto";
+import FinalizarCompra from "../Componentes/FinalizarCompra";
+import { formatoMoneda } from "../Utilidad/Formato";
 
 function Carrito() {
   const [items, setItems] = useState([]);
   const [itemsFiltrados, setItemsFiltrados] = useState([]);
-  const { itemsCarrito, quitarCarrito } = useUsuario();
+  const { itemsCarrito, quitarCarrito, usuario } = useUsuario();
   const [cargando, setCargando] = useState(false);
   const [finalizarPopup, setFinalizarPopup] = useState(false);
+
+  const totalOrden = itemsFiltrados.reduce(
+    (total, item) => total + item.Precio,
+    0
+  );
 
   useEffect(() => {
     const traerTodosLosItems = async () => {
@@ -47,7 +53,6 @@ function Carrito() {
   }, []);
 
   useEffect(() => {
-    console.log(itemsCarrito);
     setItemsFiltrados(items.filter((item) => itemsCarrito.includes(item.Id)));
   }, [items, itemsCarrito]);
 
@@ -67,16 +72,25 @@ function Carrito() {
       )}
       {cargando && <h2 className="text-3xl text-center">Cargando...</h2>}
       {itemsFiltrados.length > 0 && (
-        <button
-          onClick={() => setFinalizarPopup(true)}
-          className="flex p-3 bg-[#bbb4a9]/80 rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] mx-auto mb-20"
-        >
-          Finalizar compra
-        </button>
+        <div>
+          <div>
+            <h6>Total</h6>
+            <h6>{formatoMoneda(totalOrden)}</h6>
+          </div>
+          <button
+            onClick={() => setFinalizarPopup(true)}
+            className="flex p-3 bg-[#bbb4a9]/80 rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] mx-auto mb-20"
+          >
+            Finalizar compra
+          </button>
+        </div>
       )}
       <FinalizarCompra
         isOpen={finalizarPopup}
         onClose={() => setFinalizarPopup(false)}
+        usuario={usuario}
+        items={itemsFiltrados}
+        totalOrden={totalOrden}
       />
     </>
   );

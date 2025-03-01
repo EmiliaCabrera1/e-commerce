@@ -9,7 +9,7 @@ import { obtenerPolleras } from "../Servicios/productos";
 import { obtenerRemerasTops } from "../Servicios/productos";
 import { obtenerVelasDifusores } from "../Servicios/productos";
 import { obtenerVestidos } from "../Servicios/productos";
-import { useUsuario } from "../Context/UsuarioContext";
+import { useUsuario } from "../Context/UsuarioContexto";
 
 function Favoritos() {
   const [items, setItems] = useState([]);

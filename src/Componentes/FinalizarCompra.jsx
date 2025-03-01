@@ -1,15 +1,22 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useUsuario } from "../Context/UsuarioContexto";
 
-const FinalizarCompra = ({ isOpen, onClose }) => {
+const FinalizarCompra = ({ isOpen, onClose, usuario, items, totalOrden }) => {
   const navigate = useNavigate();
+  const { finalizarCompra } = useUsuario();
   if (!isOpen) return null;
 
-  const CrearOrdenDeCompra = () => {
-    console.log("Creando orden de compra");
-    console.log("Navegar a vista orden de compra");
-    console.log("Limpiar carrito");
-    onClose();
+  const CompletarCompra = (usuario, items) => {
+    const infoUsuario = {
+      Email: usuario.email,
+      Nombre: usuario?.providerData[0]?.displayName,
+    };
+    const numeroOrdenCompra = finalizarCompra(infoUsuario, items, totalOrden);
+    if (numeroOrdenCompra) {
+      navigate("/compra");
+      onClose();
+    }
   };
 
   return (
@@ -21,7 +28,7 @@ const FinalizarCompra = ({ isOpen, onClose }) => {
         <button
           className="w-[80%] sm:w-[40%] p-4 my-5 text-lg sm:text-xl bg-[#d9d9d9] rounded-lg shadow-md border border-[#737171] mx-auto block"
           onClick={() => {
-            CrearOrdenDeCompra();
+            CompletarCompra(usuario, items);
           }}
         >
           Finalizar

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { formatoMoneda } from "../Utilidad/Formato";
-import { useUsuario } from "../Context/UsuarioContext";
+import { useUsuario } from "../Context/UsuarioContexto";
 import AlertaInicio from "./AlertaInicio";
 import DetalleItem from "./DetalleItem";
 
@@ -36,7 +36,10 @@ const Item = ({ Id, ImagenUrl, Nombre, Precio }) => {
       <button
         type="button"
         className="absolute z-10 right-4 top-[65%] w-[15%]"
-        onClick={() => cambiarFavorito(Id)}
+        onClick={(event) => {
+          event.stopPropagation();
+          cambiarFavorito(Id);
+        }}
       >
         {!esFavorito && <img src="./assets/mg.svg" alt="Corazon" />}
         {esFavorito && <img src="./assets/mg2.svg" alt="Corazon Completo" />}

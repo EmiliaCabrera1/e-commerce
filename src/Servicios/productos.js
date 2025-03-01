@@ -5,6 +5,7 @@ import {
   setDoc,
   doc,
   getDoc,
+  addDoc,
 } from "firebase/firestore";
 import { db } from "../Firebase/config";
 
@@ -132,7 +133,6 @@ export const actualizarFavoritos = async (usuario, favoritos) => {
   try {
     const docRef = doc(db, "Favoritos", usuario.uid);
     await setDoc(docRef, { Favoritos: favoritos }, { merge: true });
-    console.log("Document successfully written!");
   } catch (error) {
     console.error("Error writing document: ", error);
   }
@@ -158,7 +158,6 @@ export const actualizarCarrito = async (usuario, itemsCarrito) => {
   try {
     const docRef = doc(db, "Carritos", usuario.uid);
     await setDoc(docRef, { Items: itemsCarrito }, { merge: true });
-    console.log("Document successfully written!");
   } catch (error) {
     console.error("Error writing document: ", error);
   }
@@ -178,4 +177,17 @@ export const obtenerCarrito = async (usuario) => {
     console.log(error);
     return [];
   }
+};
+
+export const crearOrdenCompra = async (infoUsuario, productos, total) => {
+  const datos = {
+    Fecha: new Date().toLocaleDateString(),
+    Hora: new Date().toLocaleTimeString(),
+    Usuario: infoUsuario,
+    Productos: productos,
+    TotalOrden: total,
+  };
+
+  const docRef = await addDoc(collection(db, "OrdenCompra"), datos);
+  return docRef.id;
 };
