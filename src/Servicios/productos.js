@@ -153,3 +153,29 @@ export const obtenerFavoritos = async (usuario) => {
     return [];
   }
 };
+
+export const actualizarCarrito = async (usuario, itemsCarrito) => {
+  try {
+    const docRef = doc(db, "Carritos", usuario.uid);
+    await setDoc(docRef, { Items: itemsCarrito }, { merge: true });
+    console.log("Document successfully written!");
+  } catch (error) {
+    console.error("Error writing document: ", error);
+  }
+};
+
+export const obtenerCarrito = async (usuario) => {
+  try {
+    const docRef = doc(db, "Carritos", usuario.uid);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      const items = docSnap.data().Items || [];
+      return items;
+    } else {
+      return [];
+    }
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};

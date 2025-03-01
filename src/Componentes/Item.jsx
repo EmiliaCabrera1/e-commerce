@@ -49,6 +49,10 @@ const Item = ({ Id, ImagenUrl, Nombre, Precio }) => {
       <DetalleItem
         isOpen={detallePopup}
         onClose={() => setDetallePopup(false)}
+        Id={Id}
+        ImagenUrl={ImagenUrl}
+        Nombre={Nombre}
+        Precio={Precio}
       />
     </div>
   );

@@ -9,9 +9,9 @@ const Encabezado = () => {
   const { usuario } = useUsuario();
   const [loginPopup, setLoginPopup] = useState(false);
   const navigate = useNavigate();
-  const funcionOnClick = () => {
+  const funcionOnClick = (path) => {
     if (usuario) {
-      navigate("/favoritos");
+      navigate(path);
     } else {
       setLoginPopup(true);
     }
@@ -33,14 +33,20 @@ const Encabezado = () => {
       </div>
       <div className="w-[50%] sm:w-[60%] h-full justify-end flex gap-8 sm:gap-12 items-center mr-2 sm:mr-8">
         <div className=" flex justify-end my-4 max-h-full gap-3">
-          <button onClick={funcionOnClick} className=" h-full w-auto">
+          <button
+            onClick={() => funcionOnClick("/favoritos")}
+            className=" h-full w-auto"
+          >
             <img
               src="./assets/mg.svg"
               alt="Favoritos"
               className="h-6 w-full object-contain"
             />
           </button>
-          <button className=" h-full w-auto">
+          <button
+            className=" h-full w-auto"
+            onClick={() => funcionOnClick("/carrito")}
+          >
             <img
               src="./assets/carrito.svg"
               alt="Carrito"

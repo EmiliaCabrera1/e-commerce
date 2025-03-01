@@ -15,6 +15,9 @@ import Indumentaria from "./Paginas/Indumentaria";
 import Hogar from "./Paginas/Hogar";
 import Login from "./Paginas/Login";
 import Favoritos from "./Paginas/Favoritos";
+import Carrito from "./Paginas/Carrito";
+import ProtectedRoute from "./Componentes/ProtectedRoute";
+import NotFound from "./Paginas/NotFound";
 
 const Rutas = () => {
   return (
@@ -34,7 +37,12 @@ const Rutas = () => {
       <Route path="/hogar" element={<Hogar />} />
       <Route path="/registro" element={<Registro />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/favoritos" element={<Favoritos />} />
+      <Route
+        path="/favoritos"
+        element={<ProtectedRoute element={Favoritos} />}
+      />
+      <Route path="/carrito" element={<ProtectedRoute element={Carrito} />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
