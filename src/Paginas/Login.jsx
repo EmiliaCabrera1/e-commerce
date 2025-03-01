@@ -8,7 +8,7 @@ function Login() {
         <img
           src="./assets/inicio (2).png"
           alt="img inicio"
-          className="object-cover h-full"
+          className="object-cover h-full w-full"
         />
         <img
           src="./assets/frase.svg"

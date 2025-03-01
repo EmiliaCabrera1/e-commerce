@@ -58,7 +58,7 @@ const Encabezado = () => {
               className="h-6 w-full object-contain"
             />
             {usuario && (
-              <span className="absolute -bottom-2 -right-2 w-4 h-4 bg-[#737171] rounded-full ">
+              <span className="absolute -bottom-2.5 -right-2 w-5 h-auto m-autoS bg-[#737171] rounded-full text-sm text-white ">
                 {itemsCarrito.length}
               </span>
             )}
