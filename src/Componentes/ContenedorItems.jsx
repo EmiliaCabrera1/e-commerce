@@ -12,7 +12,7 @@ const ContenedorItems = ({ items, cargando }) => {
           items.map((item) => <Item key={item.Id} {...item} />)}
       </div>
       {items.length === 0 && !cargando && (
-        <h2 className=" text-xl md::text-3xl text-center text-[#797979] mb-2">
+        <h2 className=" text-xl md:text-3xl text-center text-[#797979] mb-2">
           No hay items para mostrar
         </h2>
       )}
