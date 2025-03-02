@@ -72,9 +72,15 @@ function Carrito() {
           />
         ))}
       {itemsFiltrados.length === 0 && !cargando && (
-        <h2 className="text-3xl text-center">No hay items para mostrar</h2>
+        <h2 className="text-3xl text-center text-[#797979] mt-30">
+          No hay items para mostrar
+        </h2>
       )}
-      {cargando && <h2 className="text-3xl text-center">Cargando...</h2>}
+      {cargando && (
+        <h2 className="text-3xl text-center text-[#797979] mt-30 ">
+          Cargando...
+        </h2>
+      )}
       {itemsFiltrados.length > 0 && (
         <div>
           <div className=" flex text-xl md:text-3xl bg-beige/60 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.30)] m-3 p-4 justify-center gap-20 mt-8 mb-6 ">

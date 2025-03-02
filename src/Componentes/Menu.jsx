@@ -12,11 +12,10 @@ const Menu = ({ onClose }) => {
   };
 
   const manejarClickEnTransparencia = (event) => {
-    //Cierra menu
     onClose();
-    //El click se propaga
+
     event.target.style.pointerEvents = "none";
-    //Ejecuta la accion en el elemento de abajo.
+
     const elementoDeAbajo = document.elementFromPoint(
       event.clientX,
       event.clientY
@@ -78,9 +77,15 @@ const Menu = ({ onClose }) => {
               </li>
             )}
           </ul>
-          <button className="flex justify-end ml-auto mr-15 mt-10 text-white text-lg">
-            Contacto
-          </button>
+          <a
+            href="https://wa.me/543876836037"
+            target="_blank"
+            className="h-6 w-6"
+          >
+            <button className="flex justify-end ml-auto mr-15 mt-10 text-white text-lg">
+              Contacto
+            </button>
+          </a>
         </div>
       </div>
       <div
