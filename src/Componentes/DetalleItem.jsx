@@ -68,7 +68,7 @@ const DetalleItem = ({ isOpen, onClose, Id, ImagenUrl, Nombre, Precio }) => {
             <div className="my-4">
               <button
                 onClick={agregarItem}
-                className="bg-[#F8F8F8]/80 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] px-3 py-2 my-2 rounded"
+                className="bg-[#F8F8F8] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] px-3 py-2 my-2 rounded"
               >
                 Agregar al carrito
               </button>
