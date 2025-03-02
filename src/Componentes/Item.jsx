@@ -26,16 +26,16 @@ const Item = ({ Id, ImagenUrl, Nombre, Precio }) => {
   return (
     <div
       onClick={() => setDetallePopup(true)}
-      className="relative bg-beige/30 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.30)] w-full aspect-[2/3]"
+      className="relative bg-beige/35 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.30)] w-full aspect-[2/3]"
     >
       <img
         src={ImagenUrl}
         alt="Foto del vestido"
-        className="h-[80%] w-full object-cover"
+        className="h-[80%] w-full object-cover shadow-[0px_2px_2px_0px_rgba(0,0,0,0.30)]"
       />
       <button
         type="button"
-        className="absolute z-10 right-4 top-[65%] w-[15%]"
+        className="absolute z-10 right-4 top-[65%] w-[15%] "
         onClick={(event) => {
           event.stopPropagation();
           cambiarFavorito(Id);
@@ -44,7 +44,7 @@ const Item = ({ Id, ImagenUrl, Nombre, Precio }) => {
         {!esFavorito && <img src="./assets/mg.svg" alt="Corazon" />}
         {esFavorito && <img src="./assets/mg2.svg" alt="Corazon Completo" />}
       </button>
-      <div className="h-[20%] mx-2 my-2 space-y-1">
+      <div className="h-[20%] mx-2 my-3 space-y-1">
         <h5 className="text-nowrap">{Nombre}</h5>
         <h6 className="font-thin ">{formatoMoneda(Precio)}</h6>
       </div>

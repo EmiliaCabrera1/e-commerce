@@ -12,7 +12,7 @@ const Input = React.forwardRef(
         ref={ref}
         className={twMerge(
           "rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] p-2.5 text-lg bg-[#D9D9D933] w-full border-1",
-          error ? "border-red-500" : "border-[#747272]"
+          error ? "border-red-500" : "border-[#747272] bg-[#F8F8F8]"
         )}
         {...rest}
       />

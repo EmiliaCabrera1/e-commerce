@@ -39,8 +39,8 @@ const Registro = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex flex-col items-center w-[90vw] sm:w-[50vw] h-[80vh] ">
-        <h1 className="text-[#797979] text-3xl sm:text-5xl my-6 ">
+      <div className="flex flex-col items-center  justify-center mx-auto mt-10 md:mt-20 w-[90vw] md:w-[50vw] h-[60vh] bg-beige/80 rounded-lg shadow-[0px_4px_4px_0px_rgba(0,0,0,0.35)]">
+        <h1 className="text-[#F8F8F8] text-3xl sm:text-5xl my-6 ">
           Crear Cuenta
         </h1>
         <div className="w-[90%] sm:w-[50%] mx-auto">
@@ -90,9 +90,9 @@ const Registro = () => {
           <span>Continuar con Gmail</span>
           <img src="./assets/logo-gmail.svg" alt="logo gmail" className="h-6" />
         </button>
-        <div className="flex text-xl sm:text-2xl mt-5 ">
+        <div className="flex text-2xl my-5 text-[#F8F8F8] ">
           <h4>Ya tenes cuenta?</h4>
-          <Link to="/login" className="mx-4 text-xl sm:text-2xl">
+          <Link to="/login" className="mx-4 text-xl sm:text-3xl text-[#F8F8F8]">
             Continuar
           </Link>
         </div>

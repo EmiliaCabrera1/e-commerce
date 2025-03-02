@@ -58,6 +58,10 @@ function Carrito() {
 
   return (
     <>
+      <div
+        className="fixed inset-0 bg-cover bg-center opacity-10 -z-10"
+        style={{ backgroundImage: "url('./assets/textura (3).png')" }}
+      ></div>
       <Titulo titulo="Carrito" />
       {itemsFiltrados.length > 0 &&
         itemsFiltrados.map((item) => (
@@ -73,13 +77,13 @@ function Carrito() {
       {cargando && <h2 className="text-3xl text-center">Cargando...</h2>}
       {itemsFiltrados.length > 0 && (
         <div>
-          <div className=" flex text-xl md:text-3xl bg-beige/40 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.30)] m-2 p-4 justify-center gap-20 mt-8 mb-6 ">
+          <div className=" flex text-xl md:text-3xl bg-beige/60 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.30)] m-3 p-4 justify-center gap-20 mt-8 mb-6 ">
             <h6>Total</h6>
             <h6>{formatoMoneda(totalOrden)}</h6>
           </div>
           <button
             onClick={() => setFinalizarPopup(true)}
-            className="flex text-lg md:text-xl p-3 bg-[#bbb4a9]/80 rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] mx-auto mb-20"
+            className="flex text-lg md:text-xl p-4 bg-[#bbb4a9]/90 rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] mx-auto mb-30"
           >
             Finalizar compra
           </button>

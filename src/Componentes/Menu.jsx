@@ -12,7 +12,7 @@ const Menu = () => {
   };
 
   return (
-    <div className="absolute top-[8%] right-0 z-20 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.20)]">
+    <div className="absolute top-[8%] right-0 z-20 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.20)] mr-2">
       <div className="flex h-[10vh] items-center justify-center pr-7 gap-5 bg-[#d9d9d9] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.30)] -ml-3 pl-10 pt-4">
         <img src="./assets/usuario.svg" alt="msn" className="max-h-5" />
         {!usuario && <Link to="/login">Iniciar Sesion</Link>}
