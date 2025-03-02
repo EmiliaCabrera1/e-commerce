@@ -8,7 +8,7 @@ function Inicio() {
       <img
         src="./assets/frase.svg"
         alt="frase"
-        className="absolute z-20 right-[40%] top-[15%]"
+        className="absolute z-10 right-[40%] top-[15%]"
       />
     </div>
   );

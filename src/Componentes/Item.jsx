@@ -35,7 +35,7 @@ const Item = ({ Id, ImagenUrl, Nombre, Precio }) => {
       />
       <button
         type="button"
-        className="absolute z-10 right-4 top-[65%] w-[15%] "
+        className="absolute z-10 right-4 top-[63%] w-[15%] "
         onClick={(event) => {
           event.stopPropagation();
           cambiarFavorito(Id);

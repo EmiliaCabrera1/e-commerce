@@ -25,10 +25,10 @@ const DetalleItem = ({ isOpen, onClose, Id, ImagenUrl, Nombre, Precio }) => {
   const [loginPopup, setLoginPopup] = useState(false);
 
   return (
-    <div className="fixed inset-0 bg-beige/70 flex items-center justify-center z-50">
+    <div className=" fixed inset-0 bg-beige/80 sm:bg-beige/70 flex items-center justify-center z-50">
       <div
         id="popup-container"
-        className="relative flex flex-col md:flex-row bg-beige/95 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.40)] rounded p-10 w-[90%] md:w-[70%] mx-5 md:mx-20 mb-20 h-[90%] md:h-[70%] overflow-hidden"
+        className=" mt-15 sm:mt-8 relative flex flex-col md:flex-row bg-beige/95 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.40)] rounded p-10 w-[90%] md:w-[70%] mx-5 md:mx-20 mb-20 h-[90%] md:h-[70%] overflow-hidden"
       >
         <div className="absolute top-4 right-4 z-20 ">
           <button onClick={handleClose}>
@@ -68,7 +68,7 @@ const DetalleItem = ({ isOpen, onClose, Id, ImagenUrl, Nombre, Precio }) => {
             <div className="my-4">
               <button
                 onClick={agregarItem}
-                className="bg-[#F8F8F8]/80 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] px-3 py-2 my-2 rounded"
+                className="bg-[#F8F8F8] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] px-3 py-2 my-2 rounded"
               >
                 Agregar al carrito
               </button>

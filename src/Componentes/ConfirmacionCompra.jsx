@@ -2,7 +2,7 @@ import React from "react";
 
 const ConfirmacionCompra = () => {
   return (
-    <div className="flex flex-col items-center px-30 py-20 bg-[#bbb4a9]/80 rounded-[10px] shadow-[0px_6px_6px_0px_rgba(0,0,0,0.30)] my-3 mx-auto ">
+    <div className="flex flex-col items-center px-10 sm:px-30 py-20 bg-[#bbb4a9]/80 rounded-[10px] shadow-[0px_6px_6px_0px_rgba(0,0,0,0.30)] my-3 mx-auto ">
       <img
         src="./assets/confirmar.svg"
         alt="Compra Confirmada"

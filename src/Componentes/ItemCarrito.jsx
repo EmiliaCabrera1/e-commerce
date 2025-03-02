@@ -7,9 +7,13 @@ const ItemCarrito = ({ Id, Nombre, ImagenUrl, Precio, borrarItem }) => {
       className="flex bg-beige/60 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.35)] w-[80%] md:w-[60%] mx-auto
    mb-5 h-1/6 p-6"
     >
-      <img src={ImagenUrl} alt={`Imagen ${Nombre}`} />
+      <img
+        src={ImagenUrl}
+        alt={`Imagen ${Nombre}`}
+        className="h-13 w-8 sm:h-20 sm:w-15 object-cover shadow-[0px_4px_4px_0px_rgba(0,0,0,0.35)]"
+      />
       <div className="mx-8 w-full">
-        <h3 className="my-3">{Nombre}</h3>
+        <h3 className="my-1 sm:my-3">{Nombre}</h3>
         <h4>{formatoMoneda(Precio)}</h4>
       </div>
       <button
@@ -19,7 +23,7 @@ const ItemCarrito = ({ Id, Nombre, ImagenUrl, Precio, borrarItem }) => {
         <img
           src="./assets/basurero.svg"
           alt="Basurero"
-          className="h-4 w-auto ml-2 mt-2"
+          className="h-4 w-auto ml-2 mt-1 sm:mt-2"
         />
       </button>
     </div>
