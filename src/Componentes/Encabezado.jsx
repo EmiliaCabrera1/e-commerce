@@ -89,7 +89,7 @@ const Encabezado = () => {
           </button>
         </div>
       </div>
-      {menuExpandido && <Menu />}
+      {menuExpandido && <Menu onClose={() => toggleMenu()} />}
       <AlertaInicio isOpen={loginPopup} onClose={() => setLoginPopup(false)} />
     </header>
   );
