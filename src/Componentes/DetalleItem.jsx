@@ -36,21 +36,21 @@ const DetalleItem = ({ isOpen, onClose, Id, ImagenUrl, Nombre, Precio }) => {
           </button>
         </div>
         <div className="flex flex-col md:flex-row h-full w-full">
-          <div className="flex flex-col md:flex-col md:w-1/6 h-full overflow-hidden">
+          <div className="flex gap-2 md:gap-0 md:flex-col md:w-1/6 h-1/5 mb-2 md:h-full overflow-hidden">
             <img
               src={ImagenUrl}
               alt="Foto del vestido"
-              className="object-cover h-1/3 md:h-1/3 w-full mb-2"
+              className="object-cover h-full md:h-1/3 w-full mb-2"
             />
             <img
               src={ImagenUrl}
               alt="Foto del vestido"
-              className="object-cover h-1/3 md:h-1/3 w-full mb-2"
+              className="object-cover h-full md:h-1/3 w-full mb-2"
             />
             <img
               src={ImagenUrl}
               alt="Foto del vestido"
-              className="object-cover h-1/3 md:h-1/3 w-full"
+              className="object-cover h-full md:h-1/3 w-full"
             />
           </div>
           <div className="flex flex-col md:w-2/3 md:mx-2 h-full overflow-hidden shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
@@ -68,7 +68,7 @@ const DetalleItem = ({ isOpen, onClose, Id, ImagenUrl, Nombre, Precio }) => {
             <div className="my-4">
               <button
                 onClick={agregarItem}
-                className="bg-[#bbb4a9]/80 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] px-3 py-1 my-2 rounded"
+                className="bg-[#F8F8F8]/80 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] px-3 py-2 my-2 rounded"
               >
                 Agregar al carrito
               </button>

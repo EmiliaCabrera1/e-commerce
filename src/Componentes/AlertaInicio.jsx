@@ -6,7 +6,7 @@ const AlertaInicio = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-beige/50 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-[#E5E3E3]/90 flex items-center justify-center z-50">
       <div className="bg-beige/90 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.40)] w-11/12 sm:w-2/3 lg:w-1/2 mx-5 mb-20 h-auto max-h-full p-6 rounded-lg">
         <p className="text-center text-3xl text-[#d9d9d9]">
           Para continuar es necesario iniciar sesion.
