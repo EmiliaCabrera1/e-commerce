@@ -1,4 +1,5 @@
 Ecommerce con React + Vite + Yarn + TailwindCSS 
+
 Este proyecto fue desarrollado utilizando React como biblioteca principal para la construcción de la interfaz de usuario, junto con Vite como herramienta de desarrollo y empaquetado, lo que permitió una experiencia más rápida y eficiente. Para la gestión de dependencias y scripts, se utilizó Yarn, garantizando un flujo de trabajo optimizado.
 
 En cuanto al diseño y la estilización, se implementó Tailwind CSS, un framework de utilidades que facilitó la creación de una interfaz moderna y responsiva sin la necesidad de escribir grandes hojas de estilo personalizadas.
