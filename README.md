@@ -1,4 +1,11 @@
-Ecommerce con React + Vite + Yarn + TailwindCSS
+Ecommerce con React + Vite + Yarn + TailwindCSS 
+Este proyecto fue desarrollado utilizando React como biblioteca principal para la construcción de la interfaz de usuario, junto con Vite como herramienta de desarrollo y empaquetado, lo que permitió una experiencia más rápida y eficiente. Para la gestión de dependencias y scripts, se utilizó Yarn, garantizando un flujo de trabajo optimizado.
+
+En cuanto al diseño y la estilización, se implementó Tailwind CSS, un framework de utilidades que facilitó la creación de una interfaz moderna y responsiva sin la necesidad de escribir grandes hojas de estilo personalizadas.
+
+Para la gestión de datos y la autenticación, se integró Firebase, una plataforma de Google que proporcionó soluciones escalables para almacenamiento en tiempo real, autenticación de usuarios y hosting de contenido dinámico.
+
+Finalmente, el proyecto fue desplegado en Netlify, una plataforma confiable que permitió una implementación ágil y eficiente, asegurando tiempos de carga rápidos y una óptima experiencia para los usuarios.
 
 https://delasalba.netlify.app/
 
